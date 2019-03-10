@@ -1,6 +1,0 @@
-#! /bin/bash
-
-mkdir -p bin
-go build -o bin/go-refresh
-chmod 755 bin/go-refresh
-./bin/go-refresh
