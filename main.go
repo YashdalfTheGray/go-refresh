@@ -5,6 +5,9 @@ import (
 )
 
 func main() {
+	DetectOS()
+	println("Running all sample code\n")
+
 	SimpleHello()
 
 	quotient, remainder := Divide(25, 4)
