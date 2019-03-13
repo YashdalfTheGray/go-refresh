@@ -9,6 +9,6 @@ type ArgError struct {
 	message string
 }
 
-func (e *ArgError) Error() string {
+func (e ArgError) Error() string {
 	return fmt.Sprintf("%s is invalid - %s", e.name, e.message)
 }

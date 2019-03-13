@@ -18,4 +18,12 @@ func main() {
 	} else {
 		fmt.Println(fmt.Sprintf("There are %d %s's in the first %d letters of \"%s\" repeated.", result, "b", 100, "abc"))
 	}
+
+	a := Vertex2D{4, 5}
+	b := Vertex2D{1, 1}
+	initialDistance := Distance(a, b)
+	fmt.Println(fmt.Sprintf("The distance between %s and %s is %.2f.", a, b, initialDistance))
+	Translate(&a, 2, 4)
+	updatedDistance := Distance(a, b)
+	fmt.Println(fmt.Sprintf("The distance between %s and %s is %.2f.", a, b, updatedDistance))
 }
