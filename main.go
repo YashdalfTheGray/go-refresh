@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	"golang.org/x/tour/pic"
+	"io/ioutil"
 )
 
 func main() {
@@ -35,5 +34,15 @@ func main() {
 	wrapper := func(dx, dy int) [][]uint8 {
 		return Picture(dx, dy, evaluationFn)
 	}
-	pic.Show(wrapper)
+	encoded, encodingError := GenerateAndShow(wrapper, false)
+	if encodingError != nil {
+		fmt.Println(encodingError)
+	}
+	if writeError := ioutil.WriteFile("bin/temp.base64", []byte(encoded), 0644); writeError != nil {
+		fmt.Println(writeError)
+	} else {
+		fmt.Println("Wrote file bin/temp.base64 with image in base64 form")
+	}
+
+	fmt.Print("\n")
 }
