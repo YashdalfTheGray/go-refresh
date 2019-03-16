@@ -4,16 +4,20 @@ Refreshing golang knowledge by writing random golang
 
 ## building
 
-Standard go project but has `go mod` support. So just need a `go build -o bin/go-refresh` to get started.
+Standard go project but has `go mod` support. So just need a `make` to get started.
 
 ## running
 
-Running the whole binary just takes running `./bin/go-refresh`.
+Running the whole binary just takes running `make run`.
 
 ## Cleaning
 
-Just a simple `rm -rf ./bin` will clean all the built things.
+Just a simple `make clean` will clean all the built things.
 
-## `build-and-run`
+## `make` Points of Interest
 
-There is a script that builds all the code to the right place and then runs the binary.
+This section is a collection of `make` targets that are beyond the usual build, run, clean tasks.
+
+### `image`
+
+The `make image` target will use the base64 generated image that we get from the go binary (located in `bin/temp.base64`) and convert it into a `.png` file. We then use [`imgcat`](https://www.iterm2.com/documentation-images.html) to display it after we've made sure that `imgcat` actually exists on the system.
