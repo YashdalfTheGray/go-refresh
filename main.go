@@ -44,5 +44,13 @@ func main() {
 		fmt.Println("Wrote file bin/temp.base64 with image in base64 form")
 	}
 
+	s := "This is a string that we will use to detect word substring in"
+	sub := "This string is substring"
+	if result, subErr := SubstringWithMaps(s, sub); subErr != nil {
+		fmt.Println(subErr)
+	} else {
+		fmt.Println(fmt.Sprintf("Does s containe all words in sub? %t", result))
+	}
+
 	fmt.Print("\n")
 }
