@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"strconv"
 )
 
 func main() {
@@ -51,6 +52,17 @@ func main() {
 	} else {
 		fmt.Println(fmt.Sprintf("Does s containe all words in sub? %t", result))
 	}
+
+	fib := FibonacciGen()
+	fmt.Println("the first ten terms of the Fibonacci sequence are")
+	termsString := ""
+	for i := 0; i < 10; i++ {
+		termsString += strconv.Itoa(fib())
+		if i < 9 {
+			termsString += ", "
+		}
+	}
+	fmt.Println(termsString)
 
 	fmt.Print("\n")
 }
