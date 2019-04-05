@@ -68,9 +68,9 @@ func main() {
 	mySquare = Square{side: 4}
 	myRectangle = Rectangle{length: 3, height: 4}
 	myCircle = Circle{radius: 5}
-	fmt.Println(fmt.Sprintf("The square with side 4.00 has perimeter %.2f and area %.2f.", mySquare.Perimeter(), mySquare.Area()))
-	fmt.Println(fmt.Sprintf("The rectangle with sides 4.00 and 3.00 has perimeter %.2f and area %.2f.", myRectangle.Perimeter(), myRectangle.Area()))
-	fmt.Println(fmt.Sprintf("The circle with radius 5.00 has perimeter %.2f and area %.2f.", myCircle.Perimeter(), myCircle.Area()))
+	fmt.Println(PrintShape(mySquare))
+	fmt.Println(PrintShape(myRectangle))
+	fmt.Println(PrintShape(myCircle))
 
 	fmt.Print("\n")
 }
