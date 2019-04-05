@@ -1,6 +1,9 @@
 package main
 
-import "math"
+import (
+	"fmt"
+	"math"
+)
 
 // Shape is an interface that impelements Area and Perimeter
 // common shapes
@@ -53,4 +56,26 @@ func (c Circle) Perimeter() float64 {
 // Area returns the area of a circle
 func (c Circle) Area() float64 {
 	return math.Pi * c.radius * c.radius
+}
+
+// PrintShape prints out the right thing depending on shape
+func PrintShape(s Shape) string {
+	switch value := s.(type) {
+	case Square:
+		return fmt.Sprintf(
+			"The square with side %.2f has perimeter %.2f and area %.2f.",
+			value.side, value.Perimeter(), value.Area())
+	case Rectangle:
+		return fmt.Sprintf(
+			"The rectangle with sides %.2f and %.2f has perimeter %.2f and area %.2f.",
+			value.height, value.length, value.Perimeter(), value.Area())
+	case Circle:
+		return fmt.Sprintf(
+			"The circle with radius %.2f has perimeter %.2f and area %.2f.",
+			value.radius, value.Perimeter(), value.Area())
+	default:
+		return fmt.Sprintf(
+			"The shape passed in has perimeter %.2f and area %.2f.",
+			value.Perimeter(), value.Area())
+	}
 }
