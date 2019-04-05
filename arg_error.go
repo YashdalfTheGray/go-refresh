@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 // ArgError is a custom error class to tell the user about an
-// invalid argument passed to a function
+// invalid argument passed to a function. Implements the error
+// interface
 type ArgError struct {
 	name    string
 	message string

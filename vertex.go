@@ -2,7 +2,8 @@ package main
 
 import "fmt"
 
-// Vertex2D represents a point in 2D space
+// Vertex2D represents a point in 2D space. Implements the
+// fmt.Stringer interface
 type Vertex2D struct {
 	x, y float64
 }
