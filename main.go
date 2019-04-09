@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"io/ioutil"
 	"strconv"
 )
@@ -80,6 +81,19 @@ func main() {
 		fmt.Println(fmt.Sprintf("Read %d characters from InfiniteLetters", n))
 	} else {
 		fmt.Println(ilReadErr)
+	}
+
+	fmt.Println("Reading \"this is a test message\", rot13 encoded, 8 bytes at a time")
+	encodedSlice := make([]byte, 8)
+	testMessage := Message("this is a test message")
+	rot13Enc := testMessage.NewRot13Encoder()
+	for {
+		n, err := rot13Enc.Read(encodedSlice)
+		fmt.Println(fmt.Sprintf("Read %d bytes with error %e", n, err))
+		if err == io.EOF {
+			break
+		}
+		fmt.Println("\"" + string(encodedSlice) + "\"")
 	}
 
 	fmt.Print("\n")
