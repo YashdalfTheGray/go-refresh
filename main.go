@@ -72,5 +72,15 @@ func main() {
 	fmt.Println(PrintShape(myRectangle))
 	fmt.Println(PrintShape(myCircle))
 
+	fmt.Println("Reading 32 b's from InfiniteLetters")
+	bSlice := make([]byte, 32)
+	il := InfiniteLetters{letter: 'b'}
+	if n, ilReadErr := il.Read(bSlice); ilReadErr == nil {
+		fmt.Println(string(bSlice))
+		fmt.Println(fmt.Sprintf("Read %d characters from InfiniteLetters", n))
+	} else {
+		fmt.Println(ilReadErr)
+	}
+
 	fmt.Print("\n")
 }
