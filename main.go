@@ -5,6 +5,8 @@ import (
 	"io"
 	"io/ioutil"
 	"strconv"
+
+	"golang.org/x/tour/tree"
 )
 
 func main() {
@@ -94,6 +96,13 @@ func main() {
 			break
 		}
 		fmt.Println("\"" + string(encodedSlice) + "\"")
+	}
+
+	myTree := tree.New(1)
+	ch := make(chan int)
+	go Walk(myTree, ch)
+	for i := range ch {
+		fmt.Println(i)
 	}
 
 	fmt.Print("\n")
