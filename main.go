@@ -98,12 +98,8 @@ func main() {
 		fmt.Println("\"" + string(encodedSlice) + "\"")
 	}
 
-	myTree := tree.New(1)
-	ch := make(chan int)
-	go Walk(myTree, ch)
-	for i := range ch {
-		fmt.Println(i)
-	}
+	fmt.Println(fmt.Sprintf("Same(tree.New(1), tree.new(1)) returns %t", Same(tree.New(1), tree.New(1))))
+	fmt.Println(fmt.Sprintf("Same(tree.New(1), tree.new(2)) returns %t", Same(tree.New(1), tree.New(2))))
 
 	fmt.Print("\n")
 }
